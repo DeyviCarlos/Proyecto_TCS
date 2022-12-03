@@ -1,0 +1,8 @@
+.card-header{
+    display: flex;
+    align-items: center;
+}
+.thead-color{
+    background-color: #3cb815;
+    color: #fff;
+}
