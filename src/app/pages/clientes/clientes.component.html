@@ -13,30 +13,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Juan Perez</td>
-                    <td>jperez@gmail.com</td>
-                    <td>
-                        <button  type="button"
-                             class="btn btn-danger "><i class="fas fa-trash"
-                                aria-hidden="true"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>María Moreno</td>
-                    <td>m.moreno@gmail.com</td>
-                    <td>
-                        <button  type="button"
-                             class="btn btn-danger "><i class="fas fa-trash"
-                                aria-hidden="true"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Luis Alvarado</td>
-                    <td>lus.alva@gmail.com</td>
+                <tr *ngFor="let cliente of data_cliente">
+                    <td>{{ cliente.codigo }}</td>
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.correo }}</td>
                     <td>
                         <button  type="button"
                              class="btn btn-danger "><i class="fas fa-trash"

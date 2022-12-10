@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Lista de Enfermedades</h3>
-        <button id="show-modal" type="button"
+        <button id="show-modal" type="button" data-toggle="modal" data-target="#modal-enfermedad"
             class="btn btn-primary">
             <i class="fas fa-plus-circle mr-2" aria-hidden="true"></i> Nueva Enfermedad
         </button>
@@ -17,34 +17,10 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Gastritis</td>
-                    <td>Consiste en la inflamación del revestimiento del estomago </td>
-                    <td>
-                        <button 
-                            class="btn btn-success mr-2"><i class="far fa-edit" aria-hidden="true"></i></button>
-                        <button  type="button"
-                             class="btn btn-danger "><i class="fas fa-trash"
-                                aria-hidden="true"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Reumatismo</td>
-                    <td>Enfermedades que afectan a las articulaciones y producen hinchazón </td>
-                    <td>
-                        <button 
-                            class="btn btn-success mr-2"><i class="far fa-edit" aria-hidden="true"></i></button>
-                        <button  type="button"
-                             class="btn btn-danger "><i class="fas fa-trash"
-                                aria-hidden="true"></i></button>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Higado Graso</td>
-                    <td>Afección en la que se acumula grasa en el hígado</td>
+                <tr *ngFor="let enfermedad of data_enfermedades">
+                    <td scope="row">{{ enfermedad.codigo }}</td>
+                    <td>{{ enfermedad.nombre }}</td>
+                    <td>{{ enfermedad.descripcion }}</td>
                     <td>
                         <button 
                             class="btn btn-success mr-2"><i class="far fa-edit" aria-hidden="true"></i></button>
@@ -58,3 +34,23 @@
     </div>
 </div>
 <!-- /.card -->
+<!-- Modal -->
+<div class="modal fade" id="modal-enfermedad">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ titulo }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

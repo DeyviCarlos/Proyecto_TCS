@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-header">
         <h3 class="card-title">Lista de Usuarios</h3>
-        <button id="show-modal" type="button"
+        <button id="show-modal" type="button" data-toggle="modal" data-target="#modal-usuario"
             class="btn btn-primary">
             <i class="fas fa-plus-circle mr-2" aria-hidden="true"></i> Nuevo Usuario
         </button>
@@ -20,43 +20,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Torres</td>
-                    <td>Moran</td>
-                    <td>Jaime</td>
-                    <td>85697412</td>
-                    <td>Vendedor</td>
-                    <td>
-                        <button 
-                            class="btn btn-success mr-2"><i class="far fa-edit" aria-hidden="true"></i></button>
-                        <button  type="button"
-                             class="btn btn-danger "><i class="fas fa-trash"
-                                aria-hidden="true"></i></button>
-                      </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Avila</td>
-                    <td>Diaz</td>
-                    <td>Pedro</td>
-                    <td>62497412</td>
-                    <td>Vendedor</td>
-                    <td>
-                        <button 
-                            class="btn btn-success mr-2"><i class="far fa-edit" aria-hidden="true"></i></button>
-                        <button  type="button"
-                             class="btn btn-danger "><i class="fas fa-trash"
-                                aria-hidden="true"></i></button>
-                      </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Vargas</td>
-                    <td>Rivero</td>
-                    <td>Ana</td>
-                    <td>74597412</td>
-                    <td>Administrador</td>
+                <tr *ngFor="let usuario of data_usuarios">
+                    <td>{{ usuario.codigo }}</td>
+                    <td>{{ usuario.ap_paterno }}</td>
+                    <td>{{ usuario.ap_materno }}</td>
+                    <td>{{ usuario.nombres }}</td>
+                    <td>{{ usuario.dni }}</td>
+                    <td>{{ usuario.rol }}</td>
                     <td>
                         <button 
                             class="btn btn-success mr-2"><i class="far fa-edit" aria-hidden="true"></i></button>
@@ -70,3 +40,23 @@
     </div>
 </div>
 <!-- /.card -->
+<!-- Modal -->
+<div class="modal fade" id="modal-usuario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">{{ titulo }}</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>One fine body&hellip;</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
